@@ -1,0 +1,81 @@
+#include <iostream>
+#include <conio.h>
+#include <math.h>
+
+using namespace std;
+
+void factorial(int *upc) 
+{
+	int fact = 1;
+	for (int i = 1; i <= *upc;i++)
+	{
+		fact = i * fact;
+	}
+	cout << "EL factorial en: " << fact;
+}
+void dibuja(int *upc)
+{
+	int n=1;
+	for (int i = *upc;i >= 1;i--)
+	{
+		for (int j = 1;j <= i;j++)
+		{
+			cout << "  ";
+		}
+		for (int j = 1;j <= *upc*2-i*2+1;j++)
+		{
+			cout << n << " ";
+			n++;
+		}
+		cout << endl;
+		n=1;
+	}
+	for (int i = 2;i <= *upc;i++)
+	{
+		for (int j = 1;j <= i;j++)
+		{
+			cout << "  ";
+		}
+		for (int j = 1;j <= *upc * 2 - i * 2 + 1;j++)
+		{
+			cout << n << " ";
+			n++;
+		}
+		cout << endl;
+		n = 1;
+	}
+	
+}
+void exponencial(int *k,int*a)
+{
+	int ricarditogil;
+	for (int i = 2; i <= *a;i++)
+	{
+		ricarditogil = pow(*a, i) / factorial(i);
+	}
+
+}
+int main()
+{
+	int valeria, upsex, ha, hk;
+	int *upc, *a, *k;
+	upc = &upsex;
+	a = &ha;
+	k = &hk;
+
+	cout << "          Menu Principal          " << endl;
+	cout << "----------------------------------" << endl;
+	cout << "1) Determinar el factorial de un numero" << endl;
+	cout << "2) Calcular el valor de e^a" << endl;
+	cout << "3) Imprimir rombo" << endl;
+	cout << "4) Fin" << endl;
+	cin >> valeria;
+
+	if (valeria == 1) { cout << "Ingrese el numero: ";cin >> upsex; factorial(upc); }
+	if (valeria == 2) { cout << "Ingrese el k: ";cin >> hk;cout << "Ingrese el a: ";cin >> ha; exponencial(k, a); }
+	if (valeria == 3) { cout << "Ingrese el numero: ";cin >> upsex; dibuja(upc); }
+	if (valeria == 4) { exit; }
+	
+
+	_getch();
+}
